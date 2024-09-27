@@ -179,7 +179,7 @@ class _CalendarState extends State<Calendar> {
                                     const TextSpan(
                                         text: " - ",
                                         style: TextStyle(
-                                          color: Colors.black,
+                                          color: Colors.white,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 16,
                                         )),

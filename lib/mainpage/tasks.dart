@@ -277,7 +277,7 @@ class _TasksState extends State<Tasks> {
                                     const TextSpan(
                                         text: " - ",
                                         style: TextStyle(
-                                          color: Colors.black,
+                                          color: Colors.white,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 16,
                                         )),
