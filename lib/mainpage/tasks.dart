@@ -153,7 +153,8 @@ class _TasksState extends State<Tasks> {
                     ),
                   ),
                   PieChart(
-                    swapAnimationCurve: Curves.easeInOut,
+                    swapAnimationDuration: const Duration(seconds: 2),
+                    swapAnimationCurve: Curves.easeInOutQuint,
                     PieChartData(
                       sections: [
                         PieChartSectionData(
