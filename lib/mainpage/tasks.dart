@@ -133,7 +133,7 @@ class _TasksState extends State<Tasks> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text(
-              "Biểu đò thống kê các công việc chưa hoàn thành, sắp hoàn thành và đã hoàn thành",
+              "Biểu đồ thống kê các công việc chưa hoàn thành, sắp hoàn thành và đã hoàn thành",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 23,
