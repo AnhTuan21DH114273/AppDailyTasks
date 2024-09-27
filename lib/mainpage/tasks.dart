@@ -26,7 +26,8 @@ class _TasksState extends State<Tasks> {
   }
 
   void _initializeStream() {
-    tasksStream = supabase.from('Tasks').stream(primaryKey: ['id']);
+    final userId = supabase.auth.currentUser!.id;
+    tasksStream = supabase.from('Tasks').stream(primaryKey: ['id']).eq("user_id", userId);
   }
 
   Future<void> _refreshStream() async {
@@ -70,7 +71,7 @@ class _TasksState extends State<Tasks> {
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Xoá sản phẩm thất bại: $e')),
+        SnackBar(content: Text('Xoá công việc thất bại: $e')),
       );
     }
   }
@@ -84,14 +85,14 @@ class _TasksState extends State<Tasks> {
           actions: <Widget>[
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(); // Đóng hộp thoại
+                Navigator.of(context).pop(); 
               },
               child: const Text('Huỷ'),
             ),
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(); // Đóng hộp thoại
-                deleteProduct(productId); // Gọi phương thức xoá sản phẩm
+                Navigator.of(context).pop(); 
+                deleteProduct(productId); 
               },
               child: const Text('Xoá'),
             ),

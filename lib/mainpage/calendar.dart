@@ -32,8 +32,9 @@ class _CalendarState extends State<Calendar> {
   }
 
   Future<void> fetchData(DateTime date) async {
+    final userId = supabase.auth.currentUser!.id;
     final response =
-        await supabase.from('Tasks').select().eq('task_date', date.toString());
+        await supabase.from('Tasks').select().eq('task_date', date.toString()).eq("user_id", userId);
     if (mounted) {
       setState(() {
         data = response;

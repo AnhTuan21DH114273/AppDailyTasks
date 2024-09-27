@@ -22,11 +22,22 @@ class _SettingsState extends State<Settings> {
     final userId = supabase.auth.currentUser!.id;
     final data =
         await supabase.from('profiles').select().eq('id', userId).single();
-    setState(() {
-      usernameController.text = data['username'];
-      firstNameController.text = data['first_name'];
-      lastNameController.text = data['last_name'];
-    });
+    final username = data['username'] ?? '';
+    final firstName = data['first_name'] ?? '';
+    final lastName = data['last_name'] ?? '';
+    if (usernameController.text.isNotEmpty && firstNameController.text.isNotEmpty && lastNameController.text.isNotEmpty) {
+      setState(() {
+        usernameController.text = username;
+        firstNameController.text = firstName;
+        lastNameController.text = lastName;
+      });
+    } else if (usernameController.text.isEmpty && firstNameController.text.isEmpty && lastNameController.text.isEmpty) {
+      setState(() {
+        usernameController.text = username;
+        firstNameController.text = firstName;
+        lastNameController.text = lastName;
+      });
+    }
   }
 
   Future<void> _updateProfile() async {
