@@ -192,6 +192,23 @@ class _CalendarState extends State<Calendar> {
                                         ))
                                   ])),
                                 RichText(
+                                  text: TextSpan(children: <TextSpan>[
+                                  const TextSpan(
+                                      text: 'Địa điểm: ',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white70)),
+                                  TextSpan(
+                                      text: task['type'],
+                                      style: const TextStyle(
+                                        color: Colors.deepPurple,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16,
+                                      )),
+                                  
+                                ])),
+                                RichText(
                                     text: TextSpan(children: <TextSpan>[
                                   const TextSpan(
                                       text: 'Trạng thái: ',
